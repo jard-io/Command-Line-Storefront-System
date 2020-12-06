@@ -129,7 +129,7 @@ int main(){
 		return 0;
 	}
 	
-	if (optionsChoice == 2){
+	else if (optionsChoice == 2){
 		printf("Select a product category: ");
 		scanf(" %c", &categoryChoice);
 		printf("\n\n");
@@ -137,7 +137,7 @@ int main(){
 		if (categoryChoice == 'W' || categoryChoice == 'w'){
 			printf("Category W: Writing Instruments (found %d items) \n\n", wRange);
 			printf("Item Code     Description           Unit Price      Unit Weight \n");
-			for (i = WRITING_MIN; i < WRITING_MAX; i++){
+			for (i = WRITING_MIN; i <= WRITING_MAX; i++){
 				printf("%d          %s    \n", i, Desc(i));
 			}
 			
@@ -145,7 +145,7 @@ int main(){
 		else if (categoryChoice == 'P' || categoryChoice == 'p' ){
 			printf("Category P: Papers (found %d items) \n\n", pRange);
 			printf("Item Code     Description     			     Unit Price        Unit Weight \n");
-			for (i = PAPER_MIN; i < PAPER_MAX; i++){
+			for (i = PAPER_MIN; i <= PAPER_MAX; i++){
 				printf("%d          %s    \n", i, Desc(i));
 			}
 			
@@ -153,7 +153,7 @@ int main(){
 		else if (categoryChoice == 'B' || categoryChoice == 'b'){
 			printf("Category B: Bags (found %d items) \n\n", bRange);
 			printf("Item Code     Description       Unit Price      Unit Weight \n");
-			for (i = BAG_MIN; i < BAG_MAX; i++){
+			for (i = BAG_MIN; i <= BAG_MAX; i++){
 				printf("%d          %s    \n", i, Desc(i));
 			}
 			
@@ -166,14 +166,14 @@ int main(){
 			}	
 		}
 		else{
-			printf("Sorry, that category is invalid.");
+			printf("Invalid selection.");
 		}	
 		printf("\n\n");
 		printf("Good bye!");
 		return 0;
 	}
 	
-	if (optionsChoice == 3){
+	else if (optionsChoice == 3){
 	
 	printf("Enter the item code:  ");
 	scanf("%d", &x);
@@ -200,15 +200,76 @@ int main(){
 			printf("%d          %s    \n", x, Desc(x));
 		}
 		else{
-			printf("Sorry, that code is invalid.");
+			printf("Invalid item code.");
 		}
-
-	
+ 	}
+ 	
+	else {
+		printf("Invalid selection.");
+	}
 		
 	printf("\n\n");
 	printf("Good bye!");
 	return 0;
 	}
 
-	
-}
+
+
+/* Program Testing (Standard format is changed to a horizontal format for
+better legibility)
+
+TEST CASE # 01 
+--------------
+Test Scenario: Check if program can display all categories
+Test Steps: 1) Start Program 2) Enter 1 3) See list
+Test Data: 1
+Expected Results: User should see list of all specified categories
+Actual Results: As Expected
+Pass/Fail: Pass
+
+TEST CASE # 02 
+--------------
+Test Scenario: Check if program can display specific category
+Test Steps: 1) Start Program 2) Enter 2 3) Enter any character among W, P, B, and E 4) See items and their details based on category
+Test Data: 2, w or W
+Expected Results: User should see list of items from a category using a specified character AND regardless of capitalization
+Actual Results: As Expected
+Pass/Fail: Pass
+
+TEST CASE # 03 
+--------------
+Test Scenario: Check if program can display a certain item using its item code
+Test Steps: 1) Start Program 2) Enter 3 3) Enter item code 4) See item with details
+Test Data: 3, 1007
+Expected Results: User should see item and its details
+Actual Results: As Expected
+Pass/Fail: Pass
+
+TEST CASE # 04 
+--------------
+Test Scenario: Check if program displays an error message when the user's input is wrong at start up
+Test Steps: 1) Start Program 2) Enter K 3) See error message
+Test Data: K
+Expected Results: User should see 'Invalid selection. Good bye!'
+Actual Results: As Expected
+Pass/Fail: Pass
+
+TEST CASE # 05 
+--------------
+Test Scenario: Check if program displays an error message when the user's input is wrong while choosing item category
+Test Steps: 1) Start Program 2) Enter 2 3) Enter A 4) See error message
+Test Data: 2, A
+Expected Results: User should see 'Invalid selection. Good bye!'
+Actual Results: As Expected
+Pass/Fail: Pass
+
+TEST CASE # 06 
+--------------
+Test Scenario: Check if program displays an error message when the user's input is wrong while entering item code
+Test Steps: 1) Start Program 2) Enter 3 3) Enter 6 4) See error message
+Test Data: 3, 6
+Expected Results: User should see 'Invalid item code. Good bye!'
+Actual Results: As Expected
+Pass/Fail: Pass
+*/
+
